@@ -33,8 +33,12 @@ function searchWiki(s){
     let snippetval = results[i].snippet;
     if(snippetval.includes("basketball player")){
         document.getElementById("output").innerHTML+="<a href='"+links[i]+"' target='_blank'>"+results[i].title+"</a><br>"+results[i].snippet+"<br>";
-        console.log(links[i]);
-        getWikiContent("https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvslots=*&rvprop=content&formatversion=2&format=json&origin=*")
+      //  console.log(links[i]);
+       console.log(results[i].title);
+       var pageTitle = results[i].title.replaceAll(" ","_");
+       console.log(pageTitle);
+        console.log(getWikiContent("https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=revisions&rvslots=*&rvprop=content&formatversion=2&format=json&titles="+pageTitle));
+
       }
     }
     
@@ -44,11 +48,20 @@ function searchWiki(s){
     }
     function getWikiContent(requestUrl) {
         console.log("Inside getcontent")
-        fetch(requestUrl)
-        .then(resp => resp.clone().json())
-        .then(json => console.log(json));
+        let res = fetch(requestUrl)
+        .then(resp =>  resp.clone().json())
+    .then(json => {console.log(json);
+        console.log(Object.keys(json));
+        console.log(json.query.pages[0].revisions[0].slots.main.content)
+        return json;
+    });
+
+    return res;
+    
         
+       
       }
-     console.log(localStorage);
+
+     
       
      
