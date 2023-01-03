@@ -22,9 +22,10 @@
         </div>
     </section>
 
-    <div class = mainbody>
+    <div class = "mainbody">
         <div class="box">
             Top Search
+            <ul id="search-list"></ul>
         </div>
     <!--  <div id ="searchbar">
             <input class="input is-rounded" type="text" placeholder="Search for your most favorite player">
@@ -36,9 +37,13 @@
     <!-- Adding Code to link the js file 
     and the WIKI api search bar
     Code: Jessy -->
-    <input id="input"><button onclick="searchWiki(document.querySelector('#input').value)">Search!</button>
-    <div id="output"></div>
+    <div id ="searchbar"></div>
+    <input class="input is-rounded" type="text" placeholder="Search for your most favorite player">
+    <button class="button is-primary" onclick="searchWiki(document.querySelector('input').value)">Search!</button>
+    <br>
+    <div id="output"></div></div>
     <script src="./Assets/script.js"></script>
+
 
 </body>
 
