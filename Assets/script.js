@@ -1,6 +1,7 @@
 var playersearchedbylastname = document.querySelector("#playersearchedid");
 var searchbutton = document.querySelector("#searchbutton");
 var mainbody = document.querySelector(".mainbody");
+
 var topsearchbar = document.querySelector("#topsearchplayer");
 
 if (localStorage.getItem("nbasavedname") != null){
@@ -8,6 +9,8 @@ if (localStorage.getItem("nbasavedname") != null){
 }
 
 topsearchbar.textContent = "Previous Search:\n"+nbasavedname;
+
+
 
 const options = {
 	method: 'GET',
@@ -35,7 +38,11 @@ function pulldata() {
 		}
 	};
 	var playersearched = playersearchedbylastname.value;
+
 	localStorage.setItem("nbasavedname", playersearched);
+
+
+
 	fetch('https://api-nba-v1.p.rapidapi.com/players?search=' + playersearched, options)
 		.then(function (response) {
 			return response.json();
@@ -65,12 +72,15 @@ function pulldata() {
 			}
 			mainbody.addEventListener("click", function outputdata(event) {
 				let playerid = event.target.dataset.id;
+
 				var playername = event.target.textContent;
+
 				if (playerid === null) {
 					/* empty statement */;
 				};
 				if (playerid != null) {
 					mainbody.innerHTML = "";
+
 					searchWiki(playername);
 					function searchWiki(s) {
 						var ids = "";
@@ -140,11 +150,15 @@ function pulldata() {
 
 
 
+
 					fetch('https://api-nba-v1.p.rapidapi.com/players/statistics?id=' + playerid + '&season=2022', options)
 						.then(function (response) {
 							return response.json();
 						})
 						.then(function (data) {
+
+							console.log(data.response);
+
 							if (data.response.length < 1) {
 								let error = document.createElement("p");
 								error.textContent = "Sorry the player you selected did not play any games this season "
@@ -155,6 +169,7 @@ function pulldata() {
 								mainbody.appendChild(returnbutton);
 							}
 							let gamestats = document.createElement("p");
+
 							gamestats.textContent = "On " + data.response[data.response.length - 1].player.firstname + " most recent game. His stats are:";
 							mainbody.appendChild(gamestats);
 
@@ -180,6 +195,33 @@ function pulldata() {
 
 							let fieldgoal = document.createElement("p");
 							fieldgoal.textContent = "Field Goal%:" + data.response[data.response.length - 1].fgp;
+
+							gamestats.textContent = "On " + data.response[data.response.length - 1].player.firstname + " most recent game. He stats are:";
+							mainbody.appendChild(gamestats);
+
+							let assists = document.createElement("p");
+							assists.textContent = "Assists:"+data.response[data.response.length - 1].assists ;
+							mainbody.appendChild(assists);
+
+							let points = document.createElement("p");
+							points.textContent = "Points:"+data.response[data.response.length - 1].points ;
+							mainbody.appendChild(points);
+
+							let minsplayed = document.createElement("p");
+							minsplayed.textContent = "Mins Played:"+data.response[data.response.length - 1].min ;
+							mainbody.appendChild(minsplayed);
+
+							let block = document.createElement("p");
+							block.textContent = "Blocks:"+data.response[data.response.length - 1].blocks ;
+							mainbody.appendChild(block);
+
+							let rebounce = document.createElement("p");
+							rebounce.textContent = "Rebounces:"+data.response[data.response.length - 1].totReb ;
+							mainbody.appendChild(rebounce);
+
+							let fieldgoal = document.createElement("p");
+							fieldgoal.textContent = "Field Goal%:"+data.response[data.response.length - 1].fgp ;
+
 							mainbody.appendChild(fieldgoal);
 
 							let returnbutton = document.createElement("button");
