@@ -16,7 +16,7 @@
     </p>
 
 <h3><p align="center">Setup<h3>`
-    This repo contains multiply images along with 2 Html ,1 Css style Sheet,2 javascript ,1 readme.md file and a mit license. 
+    This repo contains 1 image,1 Html ,1 Css style Sheet,1 javascript ,1 readme.md file and a mit license. 
     
 <h3><p align="center">License<h3>
 This repo uses the MIT license 

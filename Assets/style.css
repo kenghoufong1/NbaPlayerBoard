@@ -22,7 +22,7 @@
     width: 20%;
     margin: 2%;
     height: 600px;
-    display: inline-flex;
+    border-style: solid;
 }
 
 #searchbar{
@@ -33,11 +33,37 @@
 }
 
 .button{
-    margin: 1%;
+    margin: 3%;
+    padding: 2%;
 }
 
 .mainbody{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
+}
+
+
+h3{
+    border-style: solid;
+    padding:2%;
+    font-size: 40px;
+    margin-top: 3%;
+    background-color: brown;
+}
+
+h4{
+    border-style: solid;
+    padding:2%;
+    font-size: 25px;
+    margin-top: 3%;
+}
+
+p{
+    display: block;
+    font-size: 25px;
+    font-weight: 500;
+    
+
 }
