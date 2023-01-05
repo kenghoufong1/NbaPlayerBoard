@@ -7,7 +7,10 @@ if (localStorage.getItem("nbasavedname") != null){
 	var nbasavedname = localStorage.getItem("nbasavedname");
 }
 
-topsearchbar.textContent = "Previous Search:\n"+nbasavedname;
+topsearchbar.textContent = "Previous Search: "
+let recentsearch = document.createElement("text")
+recentsearch.textContent = nbasavedname;
+topsearchbar.appendChild(recentsearch);
 
 const options = {
 	method: 'GET',
@@ -155,7 +158,7 @@ function pulldata() {
 								mainbody.appendChild(returnbutton);
 							}
 							let gamestats = document.createElement("p");
-							gamestats.textContent = "On " + data.response[data.response.length - 1].player.firstname + " most recent game. His stats are:";
+							gamestats.textContent = "On " + data.response[data.response.length - 1].player.firstname + "'s most recent game. His stats are:";
 							mainbody.appendChild(gamestats);
 
 							let assists = document.createElement("p");
@@ -181,6 +184,62 @@ function pulldata() {
 							let fieldgoal = document.createElement("p");
 							fieldgoal.textContent = "Field Goal%:" + data.response[data.response.length - 1].fgp;
 							mainbody.appendChild(fieldgoal);
+
+							let gamestats1 = document.createElement("p");
+							gamestats1.textContent = "On " + data.response[data.response.length - 2].player.firstname + " 2nd most recent game. His stats are:";
+							mainbody.appendChild(gamestats1);
+
+							let assists1 = document.createElement("p");
+							assists1.textContent = "Assists:" + data.response[data.response.length - 2].assists;
+							mainbody.appendChild(assists1);
+
+							let points1 = document.createElement("p");
+							points1.textContent = "Points:" + data.response[data.response.length - 2].points;
+							mainbody.appendChild(points1);
+
+							let minsplayed1 = document.createElement("p");
+							minsplayed1.textContent = "Mins Played:" + data.response[data.response.length - 2].min;
+							mainbody.appendChild(minsplayed1);
+
+							let block1 = document.createElement("p");
+							block1.textContent = "Blocks:" + data.response[data.response.length - 2].blocks;
+							mainbody.appendChild(block1);
+
+							let rebounce1 = document.createElement("p");
+							rebounce1.textContent = "Rebounces:" + data.response[data.response.length - 2].totReb;
+							mainbody.appendChild(rebounce1);
+
+							let fieldgoal1 = document.createElement("p");
+							fieldgoal1.textContent = "Field Goal%:" + data.response[data.response.length - 2].fgp;
+							mainbody.appendChild(fieldgoal1);
+
+							let gamestats2 = document.createElement("p");
+							gamestats2.textContent = "On " + data.response[data.response.length - 3].player.firstname + " 3rd most recent game. His stats are:";
+							mainbody.appendChild(gamestats2);
+
+							let assists2 = document.createElement("p");
+							assists2.textContent = "Assists:" + data.response[data.response.length -3].assists;
+							mainbody.appendChild(assists2);
+
+							let points2 = document.createElement("p");
+							points2.textContent = "Points:" + data.response[data.response.length - 3].points;
+							mainbody.appendChild(points2);
+
+							let minsplayed2 = document.createElement("p");
+							minsplayed2.textContent = "Mins Played:" + data.response[data.response.length - 3].min;
+							mainbody.appendChild(minsplayed2);
+
+							let block2 = document.createElement("p");
+							block2.textContent = "Blocks:" + data.response[data.response.length - 3].blocks;
+							mainbody.appendChild(block2);
+
+							let rebounce2 = document.createElement("p");
+							rebounce2.textContent = "Rebounces:" + data.response[data.response.length - 3].totReb;
+							mainbody.appendChild(rebounce2);
+
+							let fieldgoal2 = document.createElement("p");
+							fieldgoal2.textContent = "Field Goal%:" + data.response[data.response.length - 3].fgp;
+							mainbody.appendChild(fieldgoal2);
 
 							let returnbutton = document.createElement("button");
 							returnbutton.addEventListener("click", returnbuttonpress)

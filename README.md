@@ -41,9 +41,6 @@ Below is a screesnshot of how the website should look
 
 ![My Image](Assets\NbaSearchBoardFrameWork.PNG)
 
-Below is another screenshot of how the actual deployed website looks like
-
-![My Image](.png))
 
 <h3><p align="center">Accetance Criteria<h3>
 Given a NBA Player Board with a search bar
@@ -53,5 +50,5 @@ Then I am taken to the Player information page
 
 <h3><p align="center">Links<h3>
 Below is a link to the actual deployed application
-
+https://kenghoufong1.github.io/NbaPlayerBoard/
  
